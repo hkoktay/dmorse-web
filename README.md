@@ -1,6 +1,6 @@
 # Dmorse
 
-This application is just a simple example of an progressive web application.
+This application is just a simple example of a progressive web application.
 
 # Summary
 
