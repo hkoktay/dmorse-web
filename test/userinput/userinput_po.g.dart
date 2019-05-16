@@ -52,7 +52,7 @@ class $$UserinputPO {
     for (final __listener in $__root__.listeners) {
       __listener.startPageObjectMethod('UserinputPO', '_inputBox');
     }
-    final element = $__root__.createElement(ByTagName("input-box"), [], []);
+    final element = $__root__.createElement(ByClass("input-box"), [], []);
     final returnMe = element;
     for (final __listener in $__root__.listeners) {
       __listener.endPageObjectMethod('UserinputPO', '_inputBox');
@@ -64,7 +64,7 @@ class $$UserinputPO {
     for (final __listener in $__root__.listeners) {
       __listener.startPageObjectMethod('UserinputPO', '_outputBox');
     }
-    final element = $__root__.createElement(ByTagName("output-box"), [], []);
+    final element = $__root__.createElement(ByClass("output-box"), [], []);
     final returnMe = element;
     for (final __listener in $__root__.listeners) {
       __listener.endPageObjectMethod('UserinputPO', '_outputBox');

@@ -7,10 +7,10 @@ abstract class UserinputPO {
   UserinputPO();
   factory UserinputPO.create(PageLoaderElement context) = $UserinputPO.create;
 
-  @ByTagName("input-box")
+  @ByClass("input-box")
   PageLoaderElement get _inputBox;
 
-  @ByTagName("output-box")
+  @ByClass("output-box")
   PageLoaderElement get _outputBox;
 
   bool get inputBox => _inputBox.exists;
