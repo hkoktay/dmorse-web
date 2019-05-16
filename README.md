@@ -8,7 +8,7 @@ Dmorse is a simple progressive web application to translate text into morse code
 It is written in [dart](https://dart.dev) or to be more specific it is written
 in [AngularDart](https://angulardart.dev). You can find more information about
 progressive web applications on google's [developer website](https://developers.google.com/web/progressive-web-apps/).
-You can also try it out [online]().
+You can also try it out [online](https://dmorse.firebaseapp.com/).
 
 # Usage
 
