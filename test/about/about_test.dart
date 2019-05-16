@@ -4,8 +4,8 @@ import 'package:angular_router/testing.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
-import 'package:angularDart_dmorse/src/about/about_component.dart';
-import 'package:angularDart_dmorse/src/about/about_component.template.dart'
+import 'package:dmorse_web/src/about/about_component.dart';
+import 'package:dmorse_web/src/about/about_component.template.dart'
     as ng;
 import 'about_po.dart';
 

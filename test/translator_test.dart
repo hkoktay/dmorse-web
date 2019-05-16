@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:angularDart_dmorse/src/translator_service.dart';
+import 'package:dmorse_web/src/translator_service.dart';
 
 void main() {
   var translator = TranslatorService();
