@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dmorse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+  <base href="/">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script defer src="main.dart.js"></script>
+</head>
+
+<body>
+  <my-app></my-app>
+</body>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log(`Service Worker registered! Scope: ${registration.scope}`);
+        })
+        .catch(err => {
+          console.log(`Service Worker registration failed: ${err}`);
+        });
+    });
+  }
+</script>
+<noscript>
+  <p>Hello user. It's a wise choice to disable javascript for unknown websites and applications by default but this
+    website is a single page application, which needs javascript to work; sorry.</p>
+</noscript>
+
+</html>

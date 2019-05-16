@@ -1,0 +1,32 @@
+<div class="content-container">
+    <div class="content-box mdc-card mdc-card--outlined">
+        <div class="input-box">
+            <p>Ths is a small web application to translate morse code. It doesn't do much except for translating text
+                into morse code.</p>
+            <material-input floatingLabel autofocus type="text" [(ngModel)]="inputText" (change)="onChange($event)"
+                label="Type in text and hit Enter to translate text.">
+            </material-input>
+            <div class="mdc-card__actions">
+                <div class="mdc-card__action-buttons">
+                    <material-button dense raised (trigger)="onClear()">Clear Input</material-button>
+                    <material-button dense raised [disabled]="isDisabled" (trigger)="onClearHistory()">Clear History</material-button>
+                    <material-button dense raised [disabled]="isDisabled" (trigger)="onHistory()">History</material-button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="outputText != null" class="content-box mdc-card mdc-card--outlined">
+        <div class="output-box">
+            <p>{{outputText}}</p>
+        </div>
+    </div>
+    <div *ngIf="history == true">
+        <div *ngFor="let item of savedHistory" class="content-box mdc-card mdc-card--outlined">
+            <div class="history-box">
+                <p class="history-text">{{item[0]}}</p>
+                <p class="history-morse">{{item[1]}}</p>
+            </div>
+        </div>
+    </div>
+</div>

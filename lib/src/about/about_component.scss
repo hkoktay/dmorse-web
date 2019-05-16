@@ -1,0 +1,18 @@
+@import 'package:angular_components/css/material/material';
+
+.content-container {
+    display: flex;
+    margin-top: $mat-grid;
+    padding: $mat-grid;
+    justify-content: center;
+    @include mat-font-body;
+}
+
+.content-box {
+    max-width: 600px;
+    padding: $mat-grid * 2;
+}
+
+h1 {
+    @include mat-font-title;
+}

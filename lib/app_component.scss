@@ -1,0 +1,51 @@
+@import 'package:angular_components/css/material/material';
+
+.material-header {
+    color: $mat-text-primary;
+    background: $mat-white;
+    
+}
+
+.nav-link {
+    a {
+        text-decoration: none;
+        padding-bottom: 10px;
+    }
+
+    a:visited {
+        color: #212121;
+    }
+
+    a:active {
+        color: midnightblue;
+        border-bottom: 2px solid #212121;
+    }
+
+    a:hover {
+     border-bottom: 2px solid #212121;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #212121;
+}
+
+.nav-button {
+    display: none;
+}
+
+@media (max-width: 500px) {
+
+    .nav-link {
+        display: none;
+    }
+
+    .nav-button {
+        display: block;
+    }
+  
+}

@@ -1,0 +1,34 @@
+<header class="material-header">
+    <div class="material-header-row">
+        <material-button icon class="material-drawer-button nav-button" (trigger)="drawer.toggle()">
+            <material-icon icon="menu"></material-icon>
+        </material-button>
+        <nav class="material-navigation nav-link"><a [routerLink]="RoutePaths.userinput.toUrl()"
+                [routerLinkActive]="'active'">Dmorse</a></nav>
+        <nav class="material-navigation nav-link">
+            <a [routerLink]="RoutePaths.about.toUrl()" [routerLinkActive]="'active'">About</a>
+        </nav>
+        <nav class="material-navigation nav-link">
+            <a href="https://github.com/hkoktay">Source</a>
+        </nav>
+        <div class="material-spacer"></div>
+        <material-button *ngIf="prompt" dense (trigger)="addToHomeScreen()">Install</material-button>
+    </div>
+</header>
+<material-drawer temporary #drawer="drawer">
+    <material-list>
+        <div group class="mat-drawer-spacer"></div>
+        <div group>
+            <material-list-item><a [routerLink]="RoutePaths.about.toUrl()" [routerLinkActive]="'active'">About</a>
+            </material-list-item>
+            <material-list-item><a [routerLink]="RoutePaths.userinput.toUrl()"
+                    [routerLinkActive]="'active'">Translate</a>
+            </material-list-item>
+            <material-list-item><a [routerLink]="RoutePaths.about.toUrl()" [routerLinkActive]="'active'">Source</a>
+            </material-list-item>
+        </div>
+    </material-list>
+</material-drawer>
+<material-content class="mat-typography">
+    <router-outlet [routes]="Routes.all"></router-outlet>
+</material-content>
