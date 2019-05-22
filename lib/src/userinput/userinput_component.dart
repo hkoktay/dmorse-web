@@ -60,15 +60,9 @@ class UserinputComponent {
   /// [UserinputComponent.outputText] in the list [UserinputComponent.savedHistory].
   void onChange(dynamic text) {
     if (translateToMorse) {
-      outputText = _translatorService
-          .wordstringToMorselist(text)
-          .map((w) => w.join(" "))
-          .join("  ");
+      outputText = _translatorService.textToMorse(text);
     } else {
-      outputText = _translatorService
-          .morsestringToWordlist(text) // Translate string into a list of char lists
-          .map((w) => w.join(""))      // Join the chars of the list into a string
-          .join("  ");                  // Join the list of strings into one string
+      outputText = _translatorService.morseToText(text);
     }
     // outputText = _translatorService.stringToMorseletters(text).join("  ");
     savedHistory.add([text, outputText]);
