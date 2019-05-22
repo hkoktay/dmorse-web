@@ -3,81 +3,65 @@ import 'package:dmorse_web/src/translator_service.dart';
 
 void main() {
   var translator = TranslatorService();
-  group("stringToMorseletters", () {
-    
+  group("test textwordToMorseword", () {
 
-    test("Test simple string", () {
+    test("with simple string", () {
       var word = "SOS";
-      expect(translator.stringToMorseletters(word), equals(["...", "---", "..."]));
+      expect(translator.textwordToMorseword(word), equals("... --- ..."));
     });
-    test("Test empty string argument", () {
+    test("with empty string argument", () {
       var word = "";
-      expect(translator.stringToMorseletters(word), equals([]));
+      expect(translator.textwordToMorseword(word), equals(""));
     });
-    test("Test whitespace only argument", () {
-      var word = "    ";
-      expect(translator.stringToMorseletters(word), equals([]));
+    test('with letter not represented in morse code', () {
+      var word = "S^S";
+      expect(translator.textToMorse(word), equals("... * ..."));
     });
   });
 
-  group("morsestringToLetters", () {
+  group("morsewordToTextword", () {
     test("Test simple string argument", () {
       var morseStr = "... --- ...";
-      expect(translator.morsestringToLetters(morseStr), equals(["S", "O", "S"]));
+      expect(translator.morsewordToTextword(morseStr), equals("SOS"));
     });
     test("Test with no matching morse code", () {
       var morseStr = "... 000 ...";
-      expect(translator.morsestringToLetters(morseStr), equals(["S", "S"]));
+      expect(translator.morsewordToTextword(morseStr), equals("S*S"));
     });
     test("Test with empty string", () {
       var morseStr = "";
-      expect(translator.morsestringToLetters(morseStr), equals([]));
+      expect(translator.morsewordToTextword(morseStr), equals(""));
     });
   });
 
-  group('wordstringToMorselist', () {
+  group('textToMorse', () {
     test("Test example string", () {
       var str = "SOS this is an emergency.";
-      expect(translator.wordstringToMorselist(str), [
-        ["...", "---", "..."],
-        ["-", "....", "..", "..."],
-        ["..", "..."],
-        [".-", "-."],
-        [".", "--", ".", ".-.", "--.", ".", "-.", "-.-.", "-.--", ".-.-.-"],
-      ]);
+      expect(translator.textToMorse(str),
+       equals("... --- ...   - .... .. ...   .. ...   .- -.   . -- . .-. --. . -. -.-. -.-- .-.-.-"));
     });
     test("Test empty string", () {
       var str = "";
-      expect(translator.wordstringToMorselist(str), []);
+      expect(translator.textToMorse(str), equals(""));
     });
     test("Test string with non-valid characters", () {
       var str = "über";
-      expect(translator.wordstringToMorselist(str), [
-        ["-...", ".", ".-."]
-      ]);
+      expect(translator.textToMorse(str), equals("* -... . .-."));
     });
   });
 
-  group('morsestringToWordlist', () {
+  group('morseToText', () {
     test("Test example string", () {
-      var str = "... --- ...  - .... .. ...  .. ...  .- -.  . -- . .-. --. . -. -.-. -.-- .-.-.-";
-      expect(translator.morsestringToWordlist(str), [
-        ["S", "O", "S"],
-        ["T", "H", "I", "S"],
-        ["I", "S"],
-        ["A", "N"],
-        ["E", "M", "E", "R", "G", "E", "N", "C", "Y", "."]
-      ]);
+      var str = "... --- ...   - .... .. ...   .. ...   .- -.   . -- . .-. --. . -. -.-. -.-- .-.-.-";
+      expect(translator.morseToText(str), equals("SOS THIS IS AN EMERGENCY."));
     });
     test("Test empty string", () {
       var str = "";
-      expect(translator.morsestringToWordlist(str), []);
+      expect(translator.morseToText(str), equals(""));
     });
     test("Test string with non-valid characters", () {
-      var str = "... --- ...  ------------";
-      expect(translator.morsestringToWordlist(str), [
-        ["S", "O", "S"], []
-      ]);
+      var str = "... --- ...   ------------";
+      expect(translator.morseToText(str), equals("SOS *"));
     });
   });
 }
