@@ -25,7 +25,11 @@ material-input {
 
 .output-box {
     width: $mat-grid * 60;
-    @include mat-font-display-1;
+    @include mat-font-body-2;
+
+    p {
+        @include mat-font-display-1
+    }
 }
 
 .history-box {
