@@ -40,17 +40,37 @@ class UserinputComponent {
   /// This is used to disable the history related buttons
   var isDisabled = true;
 
+  /// This variable controls the translation direction
+  ///
+  /// If [translateToMorse] is true [onChange] translates an input text
+  /// from text to morse code. If it's set to false by [onToggle] the input
+  /// string is translated from morse code to text.
+  var translateToMorse = true;
+
+  var toggleButtonText = "Text to Morse";
+
   TranslatorService _translatorService;
 
   UserinputComponent(this._translatorService);
 
   /// Translates the input text into a morse string.
-  /// 
+  ///
   /// Translates the input string [text] and stores the result in the
   /// variable [UserinputComonent.outputText]. Addidionally stores both [text] and
   /// [UserinputComponent.outputText] in the list [UserinputComponent.savedHistory].
   void onChange(dynamic text) {
-    outputText = _translatorService.stringToMorseletters(text).join("  ");
+    if (translateToMorse) {
+      outputText = _translatorService
+          .wordstringToMorselist(text)
+          .map((w) => w.join(" "))
+          .join("  ");
+    } else {
+      outputText = _translatorService
+          .morsestringToWordlist(text) // Translate string into a list of char lists
+          .map((w) => w.join(""))      // Join the chars of the list into a string
+          .join("  ");                  // Join the list of strings into one string
+    }
+    // outputText = _translatorService.stringToMorseletters(text).join("  ");
     savedHistory.add([text, outputText]);
     isDisabled = false;
   }
@@ -74,5 +94,18 @@ class UserinputComponent {
   void onClearHistory() {
     savedHistory.clear();
     isDisabled = true;
+  }
+
+  /// Toggle the translation and clear input and output text
+  void onToggle() {
+    if (translateToMorse == true) {
+      translateToMorse = false;
+      toggleButtonText = "Morse to Text";
+      onClear();
+    } else {
+      translateToMorse = true;
+      toggleButtonText = "Text to Morse";
+      onClear();
+    }
   }
 }

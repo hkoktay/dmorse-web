@@ -1,8 +1,9 @@
 <div class="content-container">
     <div class="content-box mdc-card mdc-card--outlined">
         <div class="input-box">
-            <p>Ths is a small web application to translate morse code. It doesn't do much except for translating text
-                into morse code.</p>
+            <p>Ths is a small web application to translate morse code. The default mode is text to morse, which means the text you
+                type into the input box is translated to morse code. You can also translate morse code do text by clicking or tapping
+                the button <i>Text to Morse</i>.</p>
             <material-input floatingLabel autofocus type="text" [(ngModel)]="inputText" (change)="onChange($event)"
                 label="Type in text and hit Enter to translate text.">
             </material-input>
@@ -11,6 +12,7 @@
                     <material-button dense raised (trigger)="onClear()">Clear Input</material-button>
                     <material-button dense raised [disabled]="isDisabled" (trigger)="onClearHistory()">Clear History</material-button>
                     <material-button dense raised [disabled]="isDisabled" (trigger)="onHistory()">History</material-button>
+                    <material-button dense raised (trigger)="onToggle()">{{toggleButtonText}}</material-button>
                     
                 </div>
             </div>
