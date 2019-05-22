@@ -48,6 +48,9 @@ class UserinputComponent {
   /// string is translated from morse code to text.
   var translateToMorse = true;
 
+  var inputHeading = "Text";
+  var outputHeading = "Morse Code";
+
   TranslatorService _translatorService;
 
   UserinputComponent(this._translatorService);
@@ -93,9 +96,13 @@ class UserinputComponent {
   void onToggle() {
     if (translateToMorse == true) {
       translateToMorse = false;
+      inputHeading = "Morse Code";
+      outputHeading = "Text";
       onClear();
     } else {
       translateToMorse = true;
+      inputHeading = "Text";
+      outputHeading = "Morse Code";
       onClear();
     }
   }

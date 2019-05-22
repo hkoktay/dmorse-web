@@ -1,7 +1,7 @@
 <div class="content-container">
     <div class="content-box mdc-card mdc-card--outlined">
         <div class="input-box">
-            <h2>Text</h2>
+            <h2>{{inputHeading}}</h2>
             <p>Ths is a small web application to translate morse code. The default mode is text to morse, which means
                 the text you type into the input box is translated to morse code. You can translate from morse code to
                 text by clicking on the button with the horizontal arrows.</p>
@@ -27,7 +27,7 @@
     </div>
     <div *ngIf="outputText != null" class="content-box mdc-card mdc-card--outlined">
         <div class="output-box">
-            <h2>Morse Code</h2>
+            <h2>{{outputHeading}}</h2>
             <p>{{outputText}}</p>
         </div>
     </div>
