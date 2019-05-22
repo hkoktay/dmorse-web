@@ -19,6 +19,7 @@ import '../translator_service.dart';
       // MaterialMultilineInputComponent,
       MaterialButtonComponent,
       MaterialIconComponent,
+      MaterialTooltipDirective,
     ],
     providers: [ClassProvider(TranslatorService), materialProviders])
 class UserinputComponent {
@@ -46,8 +47,6 @@ class UserinputComponent {
   /// from text to morse code. If it's set to false by [onToggle] the input
   /// string is translated from morse code to text.
   var translateToMorse = true;
-
-  var toggleButtonText = "Text to Morse";
 
   TranslatorService _translatorService;
 
@@ -94,11 +93,9 @@ class UserinputComponent {
   void onToggle() {
     if (translateToMorse == true) {
       translateToMorse = false;
-      toggleButtonText = "Morse to Text";
       onClear();
     } else {
       translateToMorse = true;
-      toggleButtonText = "Text to Morse";
       onClear();
     }
   }

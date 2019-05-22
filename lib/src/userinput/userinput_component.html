@@ -1,25 +1,33 @@
 <div class="content-container">
     <div class="content-box mdc-card mdc-card--outlined">
         <div class="input-box">
-            <p>Ths is a small web application to translate morse code. The default mode is text to morse, which means the text you
-                type into the input box is translated to morse code. You can also translate morse code do text by clicking or tapping
-                the button <i>Text to Morse</i>.</p>
+            <h2>Text</h2>
+            <p>Ths is a small web application to translate morse code. The default mode is text to morse, which means
+                the text you type into the input box is translated to morse code. You can translate from morse code to
+                text by clicking on the button with the horizontal arrows.</p>
             <material-input floatingLabel autofocus type="text" [(ngModel)]="inputText" (change)="onChange($event)"
                 label="Type in text and hit Enter to translate text.">
             </material-input>
             <div class="mdc-card__actions">
                 <div class="mdc-card__action-buttons">
-                    <material-button dense raised (trigger)="onClear()">Clear Input</material-button>
-                    <material-button dense raised [disabled]="isDisabled" (trigger)="onClearHistory()">Clear History</material-button>
-                    <material-button dense raised [disabled]="isDisabled" (trigger)="onHistory()">History</material-button>
-                    <material-button dense raised (trigger)="onToggle()">{{toggleButtonText}}</material-button>
-                    
+                    <material-button icon (trigger)="onClear()" materialTooltip="Clear textfield">
+                        <material-icon icon="cancel"></material-icon>
+                    </material-button>
+                    <material-button dense raised [disabled]="isDisabled" (trigger)="onClearHistory()">Clear History
+                    </material-button>
+                    <material-button dense raised [disabled]="isDisabled" (trigger)="onHistory()">History
+                    </material-button>
+                    <material-button icon (trigger)="onToggle()" materialTooltip="Change translation target">
+                        <material-icon icon="swap_horiz"></material-icon>
+                    </material-button>
+
                 </div>
             </div>
         </div>
     </div>
     <div *ngIf="outputText != null" class="content-box mdc-card mdc-card--outlined">
         <div class="output-box">
+            <h2>Morse Code</h2>
             <p>{{outputText}}</p>
         </div>
     </div>
