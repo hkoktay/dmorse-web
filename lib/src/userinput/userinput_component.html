@@ -13,14 +13,12 @@
                     <material-button icon (trigger)="onClear()" materialTooltip="Clear textfield">
                         <material-icon icon="cancel"></material-icon>
                     </material-button>
-                    <material-button dense raised [disabled]="isDisabled" (trigger)="onClearHistory()">Clear History
-                    </material-button>
-                    <material-button dense raised [disabled]="isDisabled" (trigger)="onHistory()">History
+                    <material-button icon (trigger)="onHistory()" materialTooltip="Go to translation history.">
+                        <material-icon icon="history"></material-icon>
                     </material-button>
                     <material-button icon (trigger)="onToggle()" materialTooltip="Change translation target">
                         <material-icon icon="swap_horiz"></material-icon>
                     </material-button>
-
                 </div>
             </div>
         </div>
@@ -29,14 +27,6 @@
         <div class="output-box">
             <h2>{{outputHeading}}</h2>
             <p>{{outputText}}</p>
-        </div>
-    </div>
-    <div *ngIf="history == true">
-        <div *ngFor="let item of savedHistory" class="content-box mdc-card mdc-card--outlined">
-            <div class="history-box">
-                <p class="history-text">{{item[0]}}</p>
-                <p class="history-morse">{{item[1]}}</p>
-            </div>
         </div>
     </div>
 </div>

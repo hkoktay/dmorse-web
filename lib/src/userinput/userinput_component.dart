@@ -1,7 +1,10 @@
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:angular_router/angular_router.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_components/material_input/material_input.dart';
+import 'package:dmorse_web/src/history_service.dart';
+import 'package:dmorse_web/src/routes.dart';
 
 import '../translator_service.dart';
 
@@ -29,9 +32,6 @@ class UserinputComponent {
   /// Stores the translation of the input text
   String outputText;
 
-  /// Used to toggle the history content-box
-  var history = false;
-
   /// The saved history of translations
   ///
   /// The input history should be probably handled with localStorage instead of
@@ -51,9 +51,11 @@ class UserinputComponent {
   var inputHeading = "Text";
   var outputHeading = "Morse Code";
 
-  TranslatorService _translatorService;
+  final Router _router;
+  final TranslatorService _translatorService;
+  final HistoryService _history;
 
-  UserinputComponent(this._translatorService);
+  UserinputComponent(this._translatorService, this._router, this._history);
 
   /// Translates the input text into a morse string.
   ///
@@ -67,7 +69,7 @@ class UserinputComponent {
       outputText = _translatorService.morseToText(text);
     }
     // outputText = _translatorService.stringToMorseletters(text).join("  ");
-    savedHistory.add([text, outputText]);
+    _history.saveToHistory([text, outputText]);
     isDisabled = false;
   }
 
@@ -77,19 +79,8 @@ class UserinputComponent {
     outputText = null;
   }
 
-  /// Toogle the history content of translated texts
-  void onHistory() {
-    if (history == true) {
-      history = false;
-    } else {
-      history = true;
-    }
-  }
-
-  /// Clears the translation history
-  void onClearHistory() {
-    savedHistory.clear();
-    isDisabled = true;
+  Future<NavigationResult> onHistory() {
+    return _router.navigate(RoutePaths.history.toUrl());
   }
 
   /// Toggle the translation and clear input and output text
