@@ -9,10 +9,17 @@
 }
 
 .content-box {
-    max-width: 600px;
+    width: $mat-grid * 60;
     padding: $mat-grid * 2;
 }
 
 h1 {
     @include mat-font-title;
+}
+
+@media (max-width: 500px) {
+    .content-box {
+        width: $mat-grid * 40;
+        padding: $mat-grid * 2;
+    }
 }
