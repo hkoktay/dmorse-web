@@ -5,8 +5,11 @@
         </material-button>
         <nav class="material-navigation nav-link"><a [routerLink]="RoutePaths.userinput.toUrl()"
                 [routerLinkActive]="'active'">Dmorse</a></nav>
-        <nav class="material-navigation nav-link">
-            <a [routerLink]="RoutePaths.about.toUrl()" [routerLinkActive]="'active'">About</a>
+        <nav class="material-navigation nav-link"><a [routerLink]="RoutePaths.history.toUrl()"
+                [routerLinkActive]="'active'">History</a>
+        </nav>
+        <nav class="material-navigation nav-link"><a [routerLink]="RoutePaths.about.toUrl()"
+                [routerLinkActive]="'active'">About</a>
         </nav>
         <nav class="material-navigation nav-link">
             <a href="https://github.com/hkoktay/dmorse-web">Source</a>
@@ -19,10 +22,12 @@
     <material-list>
         <div group class="mat-drawer-spacer"></div>
         <div group>
-            <material-list-item><a [routerLink]="RoutePaths.about.toUrl()" [routerLinkActive]="'active'">About</a>
-            </material-list-item>
             <material-list-item><a [routerLink]="RoutePaths.userinput.toUrl()"
                     [routerLinkActive]="'active'">Translate</a>
+            </material-list-item>
+            <material-list-item> <a [routerLink]="RoutePaths.history.toUrl()" [routerLinkActive]="'active'">History</a>
+            </material-list-item>
+            <material-list-item><a [routerLink]="RoutePaths.about.toUrl()" [routerLinkActive]="'active'">About</a>
             </material-list-item>
             <material-list-item><a href="https://github.com/hkoktay/dmorse-web">Source</a>
             </material-list-item>
