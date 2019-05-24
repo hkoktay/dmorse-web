@@ -32,7 +32,7 @@ void main() {
 
   tearDown(disposeAnyRunningTest);
 
-  test('test if the input and output box exist', () {
+  test('test heading of history component', () {
     expect(historyPO.heading, "History");
   });
 }
