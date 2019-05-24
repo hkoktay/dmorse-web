@@ -1,0 +1,27 @@
+<div class="content-container">
+    <div class="mdc-card mdc-card--outlined">
+        <h2>History</h2>
+        <div *ngIf="getHistory().isEmpty">
+            <p>There are no translations in the history. If you translate text, it will be added automatically to
+                the history. You can delete the history by clicking on the delete icon.</p>
+        </div>
+        <div *ngIf="getHistory().isNotEmpty">
+            <material-list>
+                <div group *ngFor="let item of getHistory()">
+                    <material-list-item class="history-text">{{item[0]}}</material-list-item>
+                    <material-list-item class="history-morse">{{item[1]}}</material-list-item>
+                </div>
+            </material-list>
+        </div>
+        <div class="mdc-card__actions">
+            <div class="mdc-card__action-buttons">
+                <material-button icon (trigger)="onBack()" materialTooltip="Go back to translation page.">
+                    <material-icon icon="arrow_back"></material-icon>
+                </material-button>
+                <material-button icon (trigger)="onDelete()" materialTooltip="Delete history.">
+                    <material-icon icon="delete"></material-icon>
+                </material-button>
+            </div>
+        </div>
+    </div>
+</div>

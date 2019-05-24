@@ -1,0 +1,35 @@
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_list/mixins';
+
+@include flat-material-list();
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: $mat-grid;
+    @include mat-font-body;
+}
+
+.mdc-card {
+    // width: $mat-grid * 40;
+    padding: $mat-grid * 2;
+    width: $mat-grid * 60;
+}
+
+.history-box {
+    .history-text {
+        @include mat-font-body-2;
+    }
+
+    .history-morse {
+        @include mat-font-body-2;
+    }
+    width: $mat-grid * 60;
+}
+
+@media (max-width: 500px) {
+    .mdc-card {
+        width: $mat-grid * 40;
+    }
+}
