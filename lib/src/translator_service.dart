@@ -6,7 +6,7 @@ class TranslatorService {
   var letterSeparator = " ";
 
   /// Separates morse words in a string with morse code.
-  var wordSeparator = "   ";
+  var wordSeparator = " | ";
 
   /// Converts a single word to a morse code string
   String textwordToMorseword(String word) {
