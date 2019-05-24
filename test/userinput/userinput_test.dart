@@ -11,7 +11,9 @@ import 'userinput_po.dart';
 
 import 'userinput_test.template.dart' as self;
 
-@GenerateInjector(routerProvidersTest)
+import 'package:dmorse_web/src/history_service.dart';
+
+@GenerateInjector([routerProvidersTest, ClassProvider(HistoryService)])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {

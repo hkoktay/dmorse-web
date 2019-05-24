@@ -3,6 +3,7 @@ import 'package:dmorse_web/src/translator_service.dart';
 
 void main() {
   var translator = TranslatorService();
+  var ws = translator.wordSeparator;
   group("test textwordToMorseword", () {
 
     test("with simple string", () {
@@ -38,7 +39,7 @@ void main() {
     test("Test example string", () {
       var str = "SOS this is an emergency.";
       expect(translator.textToMorse(str),
-       equals("... --- ...   - .... .. ...   .. ...   .- -.   . -- . .-. --. . -. -.-. -.-- .-.-.-"));
+       equals("... --- ...$ws- .... .. ...$ws.. ...$ws.- -.$ws. -- . .-. --. . -. -.-. -.-- .-.-.-"));
     });
     test("Test empty string", () {
       var str = "";
@@ -52,7 +53,7 @@ void main() {
 
   group('morseToText', () {
     test("Test example string", () {
-      var str = "... --- ...   - .... .. ...   .. ...   .- -.   . -- . .-. --. . -. -.-. -.-- .-.-.-";
+      var str = "... --- ...$ws- .... .. ...$ws.. ...$ws.- -.$ws. -- . .-. --. . -. -.-. -.-- .-.-.-";
       expect(translator.morseToText(str), equals("SOS THIS IS AN EMERGENCY."));
     });
     test("Test empty string", () {
@@ -60,7 +61,7 @@ void main() {
       expect(translator.morseToText(str), equals(""));
     });
     test("Test string with non-valid characters", () {
-      var str = "... --- ...   ------------";
+      var str = "... --- ... | ------------";
       expect(translator.morseToText(str), equals("SOS *"));
     });
   });
