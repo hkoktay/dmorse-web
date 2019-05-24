@@ -3,6 +3,8 @@ import 'package:angular_components/angular_components.dart';
 import 'package:angular_router/angular_router.dart';
 
 import 'src/userinput/userinput_component.dart';
+import 'src/history/history_component.dart';
+import 'src/history_service.dart';
 import 'src/routes.dart';
 
 @Component(
@@ -23,8 +25,10 @@ import 'src/routes.dart';
       MaterialListItemComponent,
       MaterialProgressComponent,
       UserinputComponent,
+      HistoryComponent,
     ],
-    exports: [RoutePaths, Routes])
+    exports: [RoutePaths, Routes],
+    providers: [ClassProvider(HistoryService)])
 class AppComponent{
   // The variable where we save the beforeinstallprompt event
   var deferredPrompt;
