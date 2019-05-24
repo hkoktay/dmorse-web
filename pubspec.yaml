@@ -1,6 +1,6 @@
 name: dmorse_web
 description: A simple web application to translate text to morse code.
-version: 0.2.0
+version: 0.3.0
 author: hkoktay <hknkoktay+github@gmail.com>
 
 environment:

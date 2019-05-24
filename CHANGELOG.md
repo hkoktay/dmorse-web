@@ -1,3 +1,10 @@
+## 0.3.0 2019-05-24
+
+- Added new component: history_component
+- Added new service: history_service
+- Replaced history feature in userinput_component with the history_service
+- Made page styles more consistent
+
 ## 0.2.0 2019-05-22
 
 - Added new feature: Translation from morse code to text.
