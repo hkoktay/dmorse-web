@@ -18,9 +18,9 @@
     @include mat-font-body-2;
 }
 
-// material-input {
-//     width: $mat-grid * 60;
-// }
+material-input {
+    width: $mat-grid * 40;
+}
 
 .output-box {
     @include mat-font-body-2;
@@ -31,21 +31,14 @@
 }
 
 @media (max-width: 500px) {
-    // .input-box {
-    //     width: $mat-grid * 40;
-    // }
-
     .mdc-card {
         // width: $mat-grid * 40;
         padding: $mat-grid * 2;
         width: $mat-grid * 40;
     }
 
-    // material-input {
-    //     width: $mat-grid * 40;
-    // }
+    material-input {
+        width: $mat-grid * 30;
+    }
 
-    // .output-box {
-    //     width: $mat-grid * 40;
-    // }
 }

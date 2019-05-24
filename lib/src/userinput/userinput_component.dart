@@ -65,8 +65,10 @@ class UserinputComponent {
   void onChange(dynamic text) {
     if (translateToMorse) {
       outputText = _translatorService.textToMorse(text);
+      inputText = "";
     } else {
       outputText = _translatorService.morseToText(text);
+      inputText = "";
     }
     // outputText = _translatorService.stringToMorseletters(text).join("  ");
     _history.saveToHistory([text, outputText]);
