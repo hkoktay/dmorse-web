@@ -1,3 +1,7 @@
+## 0.4.0 2019-06-08
+
+- Revised HistoryService: HistoryService is using localstorage now.
+
 ## 0.3.0 2019-05-24
 
 - Added new component: history_component
