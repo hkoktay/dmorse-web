@@ -38,9 +38,6 @@ class UserinputComponent {
   /// a variable.
   var savedHistory = List();
 
-  /// This is used to disable the history related buttons
-  var isDisabled = true;
-
   /// This variable controls the translation direction
   ///
   /// If [translateToMorse] is true [onChange] translates an input text
@@ -49,7 +46,6 @@ class UserinputComponent {
   var translateToMorse = true;
 
   var inputHeading = "Text";
-  var outputHeading = "Morse Code";
 
   final Router _router;
   final TranslatorService _translatorService;
@@ -72,7 +68,6 @@ class UserinputComponent {
     }
     // outputText = _translatorService.stringToMorseletters(text).join("  ");
     _history.saveToHistory([text, outputText]);
-    isDisabled = false;
   }
 
   /// Clears the input and output Text fields
@@ -90,12 +85,10 @@ class UserinputComponent {
     if (translateToMorse == true) {
       translateToMorse = false;
       inputHeading = "Morse Code";
-      outputHeading = "Text";
       onClear();
     } else {
       translateToMorse = true;
       inputHeading = "Text";
-      outputHeading = "Morse Code";
       onClear();
     }
   }
