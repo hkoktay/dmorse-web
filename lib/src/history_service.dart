@@ -1,13 +1,23 @@
+import 'dart:html';
+
 class HistoryService {
-  var _savedHistory = List();
+  var _storage = window.localStorage;
 
   void saveToHistory(List translation) {
-    _savedHistory.add(translation);
+    _storage[translation[0]] = translation[1];
   }
 
   void deleteHistory() {
-    _savedHistory.clear();
+    _storage.clear();
   }
 
-  get getHistory => _savedHistory;
+  List get getHistory {
+    if (_storage.isEmpty) {
+      return [];
+    } else {
+      return _storage.entries.map((e) {
+        return [e.key, e.value];
+      }).toList();
+    }
+  }
 }
